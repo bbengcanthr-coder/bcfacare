@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ตรวจสุขภาพวิทยาลัยช่างศิลปบรม</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--fg:#000;--mu:#7d7d7d;--ln:#e4e4e4;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--fg:#fff;--mu:#8f8f8f;--ln:#2b2b2b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#000;--fg:#fff;--mu:#8f8f8f;--ln:#2b2b2b;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{height:100%;background:var(--bg);color:var(--fg);font:400 16px/1.5 "IBM Plex Sans Thai","Noto Sans Thai",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#app{height:100%;max-width:440px;margin:0 auto;padding:20px 24px 24px;display:flex;flex-direction:column}
+.mk{flex:none;font-weight:600;font-size:15px;letter-spacing:.14em;margin-bottom:26px}
+.s{display:none;flex:1;min-height:0;flex-direction:column;overflow-y:auto}
+.s.on{display:flex}
+h1{font-size:44px;line-height:1.2;font-weight:600;letter-spacing:-.01em}
+.sub{font-size:18px;font-weight:300;margin-top:4px}
+.fm{margin-top:34px;display:grid;gap:22px}
+.r3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+label{display:block;font-size:13px;color:var(--mu)}
+input{width:100%;font:inherit;font-size:20px;font-weight:500;color:var(--fg);background:transparent;border:0;border-bottom:1px solid var(--fg);border-radius:0;padding:5px 0 8px;outline:0}
+input:focus{border-bottom-width:2px;padding-bottom:7px}
+.bad input{border-bottom-style:dashed;border-bottom-width:2px}
+.bad label{color:var(--fg)}
+#msg{font-size:14px;min-height:21px;margin-top:14px}
+.btn{margin-top:auto;flex:none;width:100%;height:56px;border:0;border-radius:0;background:var(--fg);color:var(--bg);font:inherit;font-size:17px;font-weight:500;cursor:pointer}
+.btn:active{opacity:.8}
+.pg{flex:none;height:2px;background:var(--ln)}
+.pg i{display:block;height:100%;width:0;background:var(--fg);transition:width .3s}
+.qh{flex:none;display:flex;justify-content:space-between;align-items:center;height:40px;font-size:14px;color:var(--mu)}
+.qh button{background:none;border:0;color:inherit;font:inherit;padding:6px 0;cursor:pointer}
+.qt{font-size:30px;line-height:1.4;font-weight:500;margin:6vh 0 auto;padding-bottom:24px;letter-spacing:-.005em}
+.op{flex:none;border-top:1px solid var(--fg)}
+.op button{display:block;width:100%;height:58px;text-align:left;background:none;border:0;border-bottom:1px solid var(--ln);border-radius:0;color:var(--fg);font:inherit;font-size:17px;padding:0 4px;cursor:pointer;transition:background .12s,color .12s,padding .12s}
+.op button.sel{background:var(--fg);color:var(--bg);padding-left:14px}
+#sL{justify-content:center;padding-bottom:12vh}
+.lp{font-size:72px;font-weight:300;line-height:1;letter-spacing:-.03em}
+.lb{height:2px;background:var(--ln);margin-top:22px}
+.lb i{display:block;height:100%;width:0;background:var(--fg)}
+.lt{font-size:15px;color:var(--mu);margin-top:12px}
+.rn{font-size:30px;font-weight:600;line-height:1.25;overflow-wrap:anywhere}
+.st{display:grid;grid-template-columns:repeat(4,1fr);align-items:start;margin-top:16px;border-top:1px solid var(--fg);border-bottom:1px solid var(--ln)}
+.st div{padding:9px 0 10px}
+.st div+div{padding-left:10px;border-left:1px solid var(--ln)}
+.st small{display:block;font-size:12px;color:var(--mu);line-height:1.4}
+.st b{display:block;font-size:20px;font-weight:500;line-height:1.4}
+.top{padding:20px 0 18px}
+.top small{font-size:13px;color:var(--mu)}
+.pc{font-size:88px;font-weight:300;line-height:1.05;letter-spacing:-.04em}
+.pc span{font-size:30px;letter-spacing:0;margin-left:2px}
+.top h2{font-size:24px;font-weight:600;line-height:1.3}
+.top p{font-size:14px;color:var(--mu)}
+.rw{padding:11px 0 12px;border-top:1px solid var(--ln)}
+.rw div{display:flex;justify-content:space-between;gap:12px;font-size:16px}
+.rw div span+span{font-weight:500;white-space:nowrap}
+.bar{height:2px;background:var(--ln);margin-top:8px}
+.bar i{display:block;height:100%;background:var(--fg)}
+.ft{font-size:12px;color:var(--mu);margin:12px 0 16px}
+#sR .btn{margin-top:auto}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="mk">BCFA</div>
+
+  <section class="s on" id="sI">
+    <h1>ตรวจสุขภาพ</h1>
+    <div class="sub">วิทยาลัยช่างศิลปบรม</div>
+    <div class="fm">
+      <div id="fn"><label for="in">ชื่อ</label><input id="in" type="text" autocomplete="off" maxlength="40"></div>
+      <div class="r3">
+        <div id="fa"><label for="ia">อายุ (ปี)</label><input id="ia" type="text" inputmode="numeric" maxlength="3"></div>
+        <div id="fw"><label for="iw">น้ำหนัก (กก.)</label><input id="iw" type="text" inputmode="decimal" maxlength="5"></div>
+        <div id="fh"><label for="ih">ส่วนสูง (ซม.)</label><input id="ih" type="text" inputmode="decimal" maxlength="5"></div>
+      </div>
+    </div>
+    <div id="msg"></div>
+    <button class="btn" id="go">เริ่มตรวจ</button>
+  </section>
+
+  <section class="s" id="sQ">
+    <div class="pg"><i id="pf"></i></div>
+    <div class="qh"><button id="back">ย้อนกลับ</button><span id="cn"></span></div>
+    <div class="qt" id="qt"></div>
+    <div class="op" id="op"></div>
+  </section>
+
+  <section class="s" id="sL">
+    <div class="lp" id="lp">0%</div>
+    <div class="lb"><i id="lf"></i></div>
+    <div class="lt">กำลังประมวลผล</div>
+  </section>
+
+  <section class="s" id="sR">
+    <div class="rn" id="rn"></div>
+    <div class="st" id="st"></div>
+    <div class="top" id="top"></div>
+    <div id="ls"></div>
+    <div class="ft">เพื่อความบันเทิง ไม่ใช่การวินิจฉัยทางการแพทย์</div>
+    <button class="btn" id="again">ตรวจใหม่</button>
+  </section>
+</div>
+
+<script>
+const F=["ไม่เลย","นาน ๆ ครั้ง","บ่อย","ทุกวัน"];
+const Q=[
+["ดื่มน้ำหวาน ชานม กาแฟหวาน",["ไม่เลย","สัปดาห์ละครั้ง","เกือบทุกวัน","วันละหลายแก้ว"],{dm:3,ob:2}],
+["กินอาหารเค็มจัด ของทอด ของมัน",0,{ht:3,hd:2,ob:2}],
+["ออกกำลังกายต่อสัปดาห์",["4 ครั้งขึ้นไป","2 ถึง 3 ครั้ง","นาน ๆ ครั้ง","ไม่เลย"],{hd:3,dm:2,ht:2,ob:2}],
+["นอนหลับต่อคืน",["8 ชั่วโมงขึ้นไป","6 ถึง 7 ชั่วโมง","4 ถึง 5 ชั่วโมง","น้อยกว่า 4 ชั่วโมง"],{sl:3,st:2,ht:1}],
+["นั่งวาดรูปหรือทำงานติดต่อกันเกิน 3 ชั่วโมง",0,{os:3,hd:1}],
+["ปวดคอ บ่า ไหล่ หรือหลัง",0,{os:3}],
+["สูบบุหรี่หรือบุหรี่ไฟฟ้า",["ไม่เลย","เคยลอง","บางวัน","ทุกวัน"],{hd:3,al:2,ht:1}],
+["ดื่มแอลกอฮอล์",0,{ht:2,gd:2,hd:1,st:1}],
+["ข้ามมื้ออาหารหรือกินไม่เป็นเวลา",0,{gd:3,ob:1}],
+["แสบท้อง จุกเสียด หลังกินอาหาร",0,{gd:3}],
+["เวลาจ้องหน้าจอต่อวัน",["น้อยกว่า 3 ชั่วโมง","3 ถึง 6 ชั่วโมง","6 ถึง 9 ชั่วโมง","เกิน 9 ชั่วโมง"],{ey:3,sl:1,os:1}],
+["ตาแห้ง ตาพร่า ปวดตา",0,{ey:3}],
+["รู้สึกเครียดหรือกดดัน",0,{st:3,ht:1,gd:1}],
+["อารมณ์แปรปรวน กังวลง่าย",0,{st:3,sl:1}],
+["หลับยาก หรือตื่นกลางดึก",0,{sl:3,st:1}],
+["กระหายน้ำและปัสสาวะบ่อยผิดปกติ",0,{dm:3}],
+["ใจสั่น เหนื่อยง่าย แน่นหน้าอก",0,{hd:3,ht:1}],
+["ครอบครัวมีประวัติเบาหวาน ความดัน หรือโรคหัวใจ",["ไม่มี","ญาติห่าง ๆ","ญาติสายตรง 1 คน","ญาติสายตรงหลายคน"],{dm:2,ht:2,hd:2,ob:1}],
+["สัมผัสฝุ่น สี ทินเนอร์ หรือสารเคมีในงานศิลป์",0,{al:3,ey:1}],
+["กินผักและผลไม้",["ทุกมื้อ","วันละครั้ง","นาน ๆ ครั้ง","แทบไม่กิน"],{ob:2,dm:1,hd:1,gd:1}]
+];
+const D={dm:"เบาหวาน",ht:"ความดันโลหิตสูง",hd:"โรคหัวใจและหลอดเลือด",ob:"ไขมันในเลือดสูง",os:"ออฟฟิศซินโดรม",gd:"กรดไหลย้อน",st:"ความเครียดสะสม",sl:"นอนไม่หลับเรื้อรัง",ey:"ตาแห้งจากหน้าจอ",al:"ภูมิแพ้ทางเดินหายใจ"};
+const $=s=>document.querySelector(s);
+const show=id=>document.querySelectorAll(".s").forEach(e=>e.classList.toggle("on",e.id===id));
+const num=v=>parseFloat(String(v).replace(",","."));
+let U={},i=0,A=[];
+
+function start(){
+  const f={n:$("#in").value.trim(),a:num($("#ia").value),w:num($("#iw").value),h:num($("#ih").value)};
+  const ok={n:f.n.length>0,a:f.a>=1&&f.a<=120,w:f.w>=20&&f.w<=300,h:f.h>=80&&f.h<=250};
+  for(const k in ok)$("#f"+k).classList.toggle("bad",!ok[k]);
+  if(!Object.values(ok).every(Boolean)){$("#msg").textContent="กรอกข้อมูลให้ครบและถูกต้อง";return}
+  $("#msg").textContent="";
+  U=f;i=0;A=[];
+  show("sQ");ask();
+}
+
+function ask(){
+  const q=Q[i],o=$("#op");
+  $("#cn").textContent=(i+1)+" / "+Q.length;
+  $("#pf").style.width=(i/Q.length*100)+"%";
+  $("#qt").textContent=q[0];
+  $("#back").style.visibility=i?"visible":"hidden";
+  o.innerHTML="";
+  (q[1]||F).forEach((t,k)=>{
+    const b=document.createElement("button");
+    b.textContent=t;
+    b.onclick=()=>{
+      [...o.children].forEach(x=>x.disabled=true);
+      b.classList.add("sel");
+      setTimeout(()=>{A[i]=k;i++;i<Q.length?ask():calc()},220);
+    };
+    o.appendChild(b);
+  });
+}
+
+function calc(){
+  $("#pf").style.width="100%";
+  show("sL");
+  let p=0;
+  const t=setInterval(()=>{
+    p=Math.min(100,p+Math.random()*9+3);
+    $("#lp").textContent=Math.floor(p)+"%";
+    $("#lf").style.width=p+"%";
+    if(p>=100){clearInterval(t);setTimeout(result,300)}
+  },90);
+}
+
+function result(){
+  const bmi=U.w/Math.pow(U.h/100,2),ex=Math.max(0,bmi-22.9),ag=Math.max(0,U.a-35);
+  const sc={};
+  for(const d in D){
+    let r=0,m=0;
+    Q.forEach((q,j)=>{const w=q[2][d]||0;r+=w*A[j];m+=w*3});
+    sc[d]=m?r/m*110:0;
+  }
+  sc.ob+=Math.min(35,ex*5);
+  sc.dm+=Math.min(18,ex*2.2)+Math.min(15,ag*.5);
+  sc.ht+=Math.min(15,ex*2)+Math.min(15,ag*.5);
+  sc.hd+=Math.min(12,ex*1.6)+Math.min(15,ag*.5);
+  const L=Object.keys(D).map(d=>[d,Math.round(Math.min(96,Math.max(3,sc[d])))]).sort((x,y)=>y[1]-x[1]).slice(0,5);
+  const lv=p=>p<35?"ต่ำ":p<60?"ปานกลาง":"สูง";
+  const bc=bmi<18.5?"น้ำหนักน้อย":bmi<23?"สมส่วน":bmi<25?"น้ำหนักเกิน":bmi<30?"อ้วนระดับ 1":"อ้วนระดับ 2";
+  const r1=x=>Math.round(x*10)/10;
+  $("#rn").textContent=U.n;
+  $("#st").innerHTML=
+    `<div><small>อายุ (ปี)</small><b>${Math.round(U.a)}</b></div>`+
+    `<div><small>น้ำหนัก (กก.)</small><b>${r1(U.w)}</b></div>`+
+    `<div><small>ส่วนสูง (ซม.)</small><b>${r1(U.h)}</b></div>`+
+    `<div><small>BMI</small><b>${bmi.toFixed(1)}</b></div>`;
+  const t=L[0];
+  $("#top").innerHTML=`<small>ความเสี่ยงสูงสุด</small><div class="pc">${t[1]}<span>%</span></div><h2>${D[t[0]]}</h2><p>${bc} ระดับความเสี่ยง${lv(t[1])}</p>`;
+  $("#ls").innerHTML=L.slice(1).map(([d,p])=>
+    `<div class="rw"><div><span>${D[d]}</span><span>${lv(p)} ${p}%</span></div><div class="bar"><i style="width:${p}%"></i></div></div>`).join("");
+  show("sR");
+  $("#sR").scrollTop=0;
+}
+
+$("#go").onclick=start;
+$("#in").addEventListener("keydown",e=>{if(e.key==="Enter")$("#ia").focus()});
+$("#ih").addEventListener("keydown",e=>{if(e.key==="Enter")start()});
+$("#back").onclick=()=>{if(i>0){i--;ask()}};
+$("#again").onclick=()=>{
+  ["in","ia","iw","ih"].forEach(k=>$("#"+k).value="");
+  ["n","a","w","h"].forEach(k=>$("#f"+k).classList.remove("bad"));
+  $("#lp").textContent="0%";$("#lf").style.width="0";
+  show("sI");
+};
+</script>
+</body>
+</html>
